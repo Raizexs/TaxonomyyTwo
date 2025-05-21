@@ -28,7 +28,7 @@ Estructura: Tipo;Nivel_Bloom;Enunciado;Opciones|Separadas|Por|Barra;Respuesta_Co
 
 Ejemplo:
 
-SELECCION MULTIPLE;RECORDAR;¿Cuál es la capital de Francia?;París|Londres|Madrid|Roma;París;30
+SELECCION MULTIPLE;RECORDAR;¿Cuál es la capital de Francia?;París|Londres|Madrid|Roma;París;30    
 VERDADERO/FALSO;ENTENDER;El sol gira alrededor de la Tierra.;Verdadero|Falso;Falso;15
 
 Compilación y Ejecución
