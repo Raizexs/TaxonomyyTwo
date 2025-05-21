@@ -48,29 +48,20 @@ public class InicioPanel extends JPanel {
         int resultado = fileChooser.showOpenDialog(this);
         if (resultado == JFileChooser.APPROVE_OPTION) {
             File archivo = fileChooser.getSelectedFile();
+            boolean cargado = false; // Variable para controlar si la carga fue exitosa
 
             try {
-                // Intentar cargar los ítems desde el archivo.
-                // Si el método cargarItemsDesdeArchivo ahora es 'void',
-                // simplemente lo llamamos. Asumimos que si no lanza una excepción,
-                // la carga fue exitosa.
+                // Intentar cargar los ítems desde el archivo
                 controlador.cargarItemsDesdeArchivo(archivo);
-
-                // Si llegamos a este punto, la carga fue exitosa (no se lanzó ninguna excepción)
-                int cantidad = controlador.getCantidadItems();
-                int tiempo = controlador.getTiempoTotal();
-                estadoCargaLabel.setText("Archivo cargado exitosamente.");
-                cantidadItemsLabel.setText("Cantidad de ítems: " + cantidad);
-                tiempoTotalLabel.setText("Tiempo estimado total: " + tiempo + " segundos");
-                iniciarPruebaButton.setEnabled(true);
-
+                cargado = true; // Si no hay excepción, la carga fue exitosa
             } catch (IOException ex) {
-                // Capturar la excepción IOException si ocurre durante la lectura del archivo
+                // Capturar la excepción IOException si ocurre
                 estadoCargaLabel.setText("Error de lectura del archivo: " + ex.getMessage());
                 cantidadItemsLabel.setText("Cantidad de ítems: -");
                 tiempoTotalLabel.setText("Tiempo estimado total: -");
                 iniciarPruebaButton.setEnabled(false);
                 ex.printStackTrace(); // Imprimir el stack trace para depuración
+                return; // Salir del método si hay un error de E/S
             } catch (Exception ex) {
                 // Capturar cualquier otra excepción inesperada que pueda lanzar el controlador
                 estadoCargaLabel.setText("Error inesperado al cargar el archivo: " + ex.getMessage());
@@ -78,6 +69,38 @@ public class InicioPanel extends JPanel {
                 tiempoTotalLabel.setText("Tiempo estimado total: -");
                 iniciarPruebaButton.setEnabled(false);
                 ex.printStackTrace(); // Imprimir el stack trace para depuración
+                return;
+            }
+
+            if (cargado) {
+                int cantidad = controlador.getCantidadItems();
+                int tiempo = controlador.getTiempoTotal(); // Tiempo en segundos
+
+                estadoCargaLabel.setText("Archivo cargado exitosamente.");
+                cantidadItemsLabel.setText("Cantidad de ítems: " + cantidad);
+
+                // Lógica para mostrar el tiempo en minutos o segundos
+                if (tiempo >= 60) {
+                    int minutos = tiempo / 60;
+                    int segundosRestantes = tiempo % 60;
+                    if (segundosRestantes > 0) {
+                        tiempoTotalLabel.setText("Tiempo estimado total: " + minutos + " minutos y " + segundosRestantes + " segundos");
+                    } else {
+                        tiempoTotalLabel.setText("Tiempo estimado total: " + minutos + " minutos");
+                    }
+                } else {
+                    tiempoTotalLabel.setText("Tiempo estimado total: " + tiempo + " segundos");
+                }
+
+                iniciarPruebaButton.setEnabled(true);
+            } else {
+                // Este else se ejecutará si cargarItemsDesdeArchivo devolvió false
+                // (aunque ahora asume éxito si no hay excepción),
+                // o si la lógica de carga interna del controlador falló sin lanzar excepción.
+                estadoCargaLabel.setText("Error al cargar el archivo. Revise el formato.");
+                cantidadItemsLabel.setText("Cantidad de ítems: -");
+                tiempoTotalLabel.setText("Tiempo estimado total: -");
+                iniciarPruebaButton.setEnabled(false);
             }
         }
     }
@@ -108,9 +131,22 @@ public class InicioPanel extends JPanel {
         );
     }
 
+    // Este método ya no es llamado por VentanaPrincipal directamente,
+    // ya que la lógica de mostrar datos se maneja en seleccionarYEnviarArchivo.
+    // Sin embargo, se mantiene por si alguna otra parte del código lo usa.
     public void mostrarDatos(int cantidad, int tiempo) {
         cantidadItemsLabel.setText("Cantidad de ítems: " + cantidad);
-        tiempoTotalLabel.setText("Tiempo estimado total: " + tiempo + " min");
+        if (tiempo >= 60) {
+            int minutos = tiempo / 60;
+            int segundosRestantes = tiempo % 60;
+            if (segundosRestantes > 0) {
+                tiempoTotalLabel.setText("Tiempo estimado total: " + minutos + " minutos y " + segundosRestantes + " segundos");
+            } else {
+                tiempoTotalLabel.setText("Tiempo estimado total: " + minutos + " minutos");
+            }
+        } else {
+            tiempoTotalLabel.setText("Tiempo estimado total: " + tiempo + " segundos");
+        }
         iniciarPruebaButton.setEnabled(true);
     }
 }
