@@ -18,7 +18,6 @@ public class VentanaPrincipal extends JFrame implements ObservadorEvaluador {
 
     public VentanaPrincipal(Controlador controlador) {
         this.controlador = controlador;
-        // Asegúrate de que la ventana se suscriba al controlador
         this.controlador.agregarObservador(this); // Usar agregarObservador para consistencia
 
         setTitle("Sistema de Evaluación");
@@ -62,7 +61,6 @@ public class VentanaPrincipal extends JFrame implements ObservadorEvaluador {
                 break;
             case PRUEBA:
                 cardLayout.show(contentPane, "Prueba");
-                // IMPORTANTE: Asegúrate de que PruebaPanel se actualice para mostrar el ítem actual
                 // Llama a un método en PruebaPanel para cargar el ítem
                 pruebaPanel.mostrarItemActual();
                 break;

@@ -3,12 +3,9 @@ package cl.unab.inf.sistemaevaluacion.backend;
 import java.util.List;
 
 public class Item {
-    // Corrección: Los nombres de las constantes del enum deben coincidir
-    // exactamente con las cadenas que se esperan del archivo de texto,
-    // después de ser convertidas a mayúsculas.
     public enum Tipo {
-        SELECCION_MULTIPLE, // Ahora coincide con "SELECCION_MULTIPLE" del archivo
-        VERDADERO_FALSO     // Ahora coincide con "VERDADERO_FALSO" del archivo
+        SELECCION_MULTIPLE,
+        VERDADERO_FALSO
     }
 
     private final Tipo tipo; // Se hizo 'final' para que sea inmutable después de la inicialización
@@ -66,9 +63,9 @@ public class Item {
         // Se usa un switch para mayor claridad si se añaden más tipos en el futuro
         switch (tipo) {
             case SELECCION_MULTIPLE:
-                return "SeleccionMultiple";
+                return "Seleccion Multiple";
             case VERDADERO_FALSO:
-                return "VerdaderoFalso";
+                return "Verdadero/Falso";
             default:
                 return "Desconocido"; // En caso de añadir un nuevo tipo y olvidarlo aquí
         }

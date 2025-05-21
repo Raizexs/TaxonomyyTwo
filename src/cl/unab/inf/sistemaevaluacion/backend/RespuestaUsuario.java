@@ -21,7 +21,7 @@ public class RespuestaUsuario {
         return item.esCorrecta(respuesta);
     }
 
-    // Devuelve el tipo como String legible para análisis (ej. "SeleccionMultiple", "VerdaderoFalso")
+    // Devuelve el tipo como String legible para análisis (ej. "Seleccion Multiple", "Verdadero/Falso")
     public String getTipoItem() {
         return item.getTipoComoTexto(); // usa el método helper definido en Item
     }

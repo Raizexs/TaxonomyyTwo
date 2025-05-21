@@ -23,7 +23,7 @@ public class RevisionPanel extends JPanel {
         revisarRespuestasButton.addActionListener(e -> controlador.revisarRespuestas());
 
         configurarLayout();
-        actualizarResumen(); // se actualiza inmediatamente al mostrar el panel
+        actualizarResumen(); // Se actualiza inmediatamente al mostrar el panel
     }
 
     private void configurarLayout() {

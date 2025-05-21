@@ -94,8 +94,7 @@ public class InicioPanel extends JPanel {
 
                 iniciarPruebaButton.setEnabled(true);
             } else {
-                // Este else se ejecutará si cargarItemsDesdeArchivo devolvió false
-                // (aunque ahora asume éxito si no hay excepción),
+                // Este else se ejecutará si cargarItemsDesdeArchivo devolvió false (aunque ahora asume éxito si no hay excepción),
                 // o si la lógica de carga interna del controlador falló sin lanzar excepción.
                 estadoCargaLabel.setText("Error al cargar el archivo. Revise el formato.");
                 cantidadItemsLabel.setText("Cantidad de ítems: -");
@@ -131,9 +130,8 @@ public class InicioPanel extends JPanel {
         );
     }
 
-    // Este método ya no es llamado por VentanaPrincipal directamente,
-    // ya que la lógica de mostrar datos se maneja en seleccionarYEnviarArchivo.
-    // Sin embargo, se mantiene por si alguna otra parte del código lo usa.
+    // Este método ya no es llamado por VentanaPrincipal directamente, ya que la lógica de mostrar datos se maneja en seleccionarYEnviarArchivo.
+    //  Sin embargo, se mantiene por si alguna otra parte del código lo usa.
     public void mostrarDatos(int cantidad, int tiempo) {
         cantidadItemsLabel.setText("Cantidad de ítems: " + cantidad);
         if (tiempo >= 60) {

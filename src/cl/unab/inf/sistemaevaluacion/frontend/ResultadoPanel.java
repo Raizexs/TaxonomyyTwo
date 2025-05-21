@@ -31,7 +31,7 @@ public class ResultadoPanel extends JPanel {
         resumenTipoLabel = new JLabel("Resumen por Tipo de Ítem:");
 
         detalleRespuestasArea = new JTextArea(10, 30); // 10 filas, 30 columnas
-        detalleRespuestasArea.setEditable(false); // No editable por el usuario
+        detalleRespuestasArea.setEditable(false); // No editable
         JScrollPane scrollPane = new JScrollPane(detalleRespuestasArea); // Añadir scroll si el contenido es largo
 
         revisarRespuestasButton = new JButton("Revisar Respuestas");
@@ -69,10 +69,8 @@ public class ResultadoPanel extends JPanel {
         );
     }
 
-    /**
-     * Este método se llama desde VentanaPrincipal para actualizar el resumen
-     * cuando el estado del controlador cambia a RESULTADO.
-     */
+    // Este método se llama desde VentanaPrincipal para actualizar el resumen cuando el estado del controlador cambia a RESULTADO
+
     public void actualizarResumen() {
         int correctas = controlador.getRespuestasCorrectasCount();
         int incorrectas = controlador.getRespuestasIncorrectasCount();
@@ -95,18 +93,6 @@ public class ResultadoPanel extends JPanel {
         Map<Item.Tipo, Double> resumenTipo = controlador.getResumenPorTipo();
         StringBuilder tipoSummary = new StringBuilder("<html><b>Resumen por Tipo de Ítem:</b><br>");
         for (Map.Entry<Item.Tipo, Double> entry : resumenTipo.entrySet()) {
-            // Usar getTipoComoTexto() del Item para obtener el formato deseado
-            // Nota: Item.Tipo.valueOf(entry.getKey().toString()) es necesario para obtener el objeto Item.Tipo
-            // y luego llamar a getTipoComoTexto() en una instancia temporal de Item.
-            // Una forma más directa es si el controlador ya devuelve el nombre formateado o si Item.Tipo tiene un método para ello.
-            // Asumiendo que Item.getTipoComoTexto() ya da el formato "SeleccionMultiple" o "VerdaderoFalso"
-            // y que el key del mapa es el enum directamente.
-
-            // Para obtener el texto formateado del enum, podemos crear un Item temporal o
-            // añadir un método estático en Item.Tipo si fuera posible.
-            // Por simplicidad, asumimos que el enum toString() es el que queremos modificar o
-            // que el mapa ya viene con el string formateado.
-            // Si el mapa devuelve Item.Tipo, podemos usar un helper.
             String tipoTexto = new Item(entry.getKey(), "", "", null, "", 0).getTipoComoTexto(); // Usa un Item temporal para acceder al método
             tipoSummary.append("&nbsp;&nbsp;").append(tipoTexto).append(": ").append(String.format("%.2f", entry.getValue())).append("%<br>");
         }

@@ -73,10 +73,8 @@ public class PruebaPanel extends JPanel {
         );
     }
 
-    /**
-     * Este método se llama desde VentanaPrincipal para actualizar la vista
-     * del panel de la prueba con el ítem actual del controlador.
-     */
+    //Este método se llama desde VentanaPrincipal para actualizar la vista del panel de la prueba con el ítem actual del controlador.
+
     public void mostrarItemActual() {
         Item itemActual = controlador.getItemActual();
         if (itemActual != null) {
@@ -116,10 +114,9 @@ public class PruebaPanel extends JPanel {
         }
     }
 
-    /**
-     * Obtiene la respuesta seleccionada por el usuario en los JRadioButtons.
-     * @return La cadena de la respuesta seleccionada o null si ninguna está seleccionada.
-     */
+    // Obtiene la respuesta seleccionada por el usuario en los JRadioButtons.
+    // @return La cadena de la respuesta seleccionada o null si ninguna está seleccionada.
+
     private String getRespuestaSeleccionada() {
         for (Enumeration<AbstractButton> buttons = opcionesGroup.getElements(); buttons.hasMoreElements();) {
             AbstractButton button = buttons.nextElement();
@@ -130,10 +127,8 @@ public class PruebaPanel extends JPanel {
         return null;
     }
 
-    /**
-     * Actualiza el estado de los botones "Anterior" y "Siguiente"
-     * y el texto del botón "Siguiente" si es el último ítem.
-     */
+    // Actualiza el estado de los botones "Anterior" y "Siguiente y el texto del botón "Siguiente" si es el último ítem.
+
     private void actualizarBotonesNavegacion() {
         anteriorButton.setEnabled(!controlador.estaEnPrimero()); // Deshabilitar si es la primera pregunta
 
