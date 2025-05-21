@@ -5,7 +5,7 @@ import java.util.Collections;
 public class ItemVerdaderoFalso extends Item {
 
     public ItemVerdaderoFalso(String nivel, String enunciado, String respuestaCorrecta, int tiempoEstimado) {
-        super(Tipo.VF, nivel, enunciado, Collections.emptyList(), respuestaCorrecta, tiempoEstimado);
+        super(Tipo.VERDADERO_FALSO, nivel, enunciado, Collections.emptyList(), respuestaCorrecta, tiempoEstimado);
     }
 
     @Override
