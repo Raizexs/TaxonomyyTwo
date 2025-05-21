@@ -24,12 +24,12 @@ Formato del Archivo de Ítems
 
 El archivo de ítems es un .txt donde cada línea es un ítem, con campos separados por ;.
 
-Estructura: Tipo;Nivel_Bloom;Enunciado;Opciones|Separadas|Por|Barra;Respuesta_Correcta;Tiempo_Estimado_Segundos
+Estructura: Tipo;Nivel_Bloom;Enunciado;Opciones|Separadas|Por|Barra;Respuesta_Correcta;Tiempo_Estimado_Minutos/Segundos
 
 Ejemplo:
 
-SELECCION_MULTIPLE;RECORDAR;¿Cuál es la capital de Francia?;París|Londres|Madrid|Roma;París;30
-VERDADERO_FALSO;ENTENDER;El sol gira alrededor de la Tierra.;Verdadero|Falso;Falso;15
+SELECCION MULTIPLE;RECORDAR;¿Cuál es la capital de Francia?;París|Londres|Madrid|Roma;París;30
+VERDADERO/FALSO;ENTENDER;El sol gira alrededor de la Tierra.;Verdadero|Falso;Falso;15
 
 Compilación y Ejecución
 
