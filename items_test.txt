@@ -1,0 +1,10 @@
+SELECCION_MULTIPLE;RECORDAR;¿Cuál es la capital de Francia?;París|Londres|Madrid|Roma;París;30
+VERDADERO_FALSO;ENTENDER;El sol gira alrededor de la Tierra.;Verdadero|Falso;Falso;15
+SELECCION_MULTIPLE;APLICAR;Si tienes 5 manzanas y te quitan 2, ¿cuántas te quedan?;2|3|4|5;3;20
+VERDADERO_FALSO;ANALIZAR;La fotosíntesis es el proceso por el cual las plantas producen su propio alimento.;Verdadero|Falso;Verdadero;40
+SELECCION_MULTIPLE;EVALUAR;¿Cuál de las siguientes opciones es la mejor para reducir la contaminación del aire?;Usar más coches|Caminar o usar bicicleta|Quemar basura|Aumentar fábricas;Caminar o usar bicicleta;50
+VERDADERO_FALSO;CREAR;Un algoritmo es una serie de pasos para resolver un problema.;Verdadero|Falso;Verdadero;25
+SELECCION_MULTIPLE;RECORDAR;¿Quién escribió "Cien años de soledad"?;Gabriel García Márquez|Mario Vargas Llosa|Julio Cortázar|Jorge Luis Borges;Gabriel García Márquez;35
+VERDADERO_FALSO;APLICAR;Un kilómetro tiene 100 metros.;Verdadero|Falso;Falso;10
+SELECCION_MULTIPLE;ENTENDER;¿Qué significa la palabra "ubicuidad"?;Estar en todas partes|Estar en un solo lugar|Estar oculto|Estar ausente;Estar en todas partes;45
+VERDADERO_FALSO;EVALUAR;Es siempre mejor usar energía nuclear que energías renovables.;Verdadero|Falso;Falso;60
